@@ -23,3 +23,16 @@ std::string parseDelimiters(const std::string& input) {
             numbersPart = input.substr(newlinePos + 1);
         }
     }
+numbersPart = replaceDelimiters(numbersPart, delimiters);
+    return numbersPart;
+}
+
+void checkForNegatives(const std::string& input) {
+    std::stringstream ss(input);
+    std::string segment;
+    while (std::getline(ss, segment, ',')) {
+        if (std::stoi(segment) < 0) {
+            throw std::runtime_error("negatives not allowed");
+        }
+    }
+}
