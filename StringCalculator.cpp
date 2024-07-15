@@ -49,3 +49,13 @@ int calculateSum(const std::string& input) {
     }
     return total;
 }
+int StringCalculator::add(const std::string& input) {
+    if (input.empty()) {
+        return 0;
+    }
+    std::string processedInput = parseDelimiters(input);
+
+    int sum = calculateSum(processedInput);
+    checkForNegatives(processedInput);
+    return sum;
+}
