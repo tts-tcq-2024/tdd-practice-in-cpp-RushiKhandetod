@@ -36,3 +36,16 @@ void checkForNegatives(const std::string& input) {
         }
     }
 }
+
+int calculateSum(const std::string& input) {
+    std::stringstream ss(input);
+    std::string segment;
+    int total = 0;
+    while (std::getline(ss, segment, ',')) {
+        int number = std::stoi(segment);
+        if (number <= 1000) {
+            total += number;
+        }
+    }
+    return total;
+}
